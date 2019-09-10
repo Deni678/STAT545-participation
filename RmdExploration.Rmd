@@ -1,0 +1,31 @@
+---
+title: "Tibble Exploraton"
+author: "Denitsa Vasileva"
+date: '2019-09-10'
+output: 
+  html_document:
+    toc: true
+    number_sections: true
+    theme: cerulean
+---
+<!-- indent the output and further indent the specifications for the output; put a colon at th end of eacj specification 
+YAML header- metadata for the document
+echo= FALSE hides the actual code
+naming code chunks -->
+```{r load, warning= FALSE, echo=FALSE}
+library(tibble)
+library(gapminder)
+library(DT)
+```
+
+## Print out gapminder data:
+
+```{r}
+x <- gapminder
+```
+<!-- This is a comment - when running amrdown R opens an entirely new session and executes it top to bottom-->
+Convert mtcars to a tibble and wrap in datatable:
+```{r}
+datatable(as_tibble(mtcars))
+```
+
