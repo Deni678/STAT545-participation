@@ -1,1 +1,1 @@
-# STAT545-participation
+# STAT545A participation
