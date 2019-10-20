@@ -3,5 +3,6 @@ __STAT 545 homepage__
 
 _Organization_
 
-[STAT 545 Home](https://stat545guidebook.netlify.com/introduction-to-stat-545-and-github.html)
+[STAT 545 Home](https://github.com/STAT545-UBC/STAT545-home)
 
+This is under the STAT545-UBC repository and it is an Org account.
