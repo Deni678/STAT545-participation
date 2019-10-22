@@ -4,12 +4,14 @@ num
 # Vectors
 times<-c(10,5,"NA")
 mean(times)
+#na.rm= removes "NA"s
 mean(times, na.rm = TRUE)
 
 mean(na.rm = TRUE, x = times)
 
 range(times)
 sqrt(times)
+#subseting
 times[times <30]
 which(times<10)
 times[which(times<10)]
