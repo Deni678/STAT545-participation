@@ -38,6 +38,7 @@ library(tidyverse)
 1. Make a data frame containing the columns `year`, `lifeExp`, `country` from the gapminder data, in that order.
 
 ```{r}
+# select - takes columns of choice
 select(gapminder, year,lifeExp,country)
 ```
 
@@ -56,12 +57,14 @@ select(gapminder, country:lifeExp)
 3. Select all variables, except `lifeExp`.
 
 ```{r}
+# removes a column
 select(gapminder, -lifeExp)
 ```
 
 4. Put `continent` first. Hint: use the `everything()` function.
 
 ```{r}
+# everything()- all other columns
 select(gapminder, continent, everything())
 ```
 
@@ -70,6 +73,7 @@ select(gapminder, continent, everything())
 
 ```{r}
 # compare
+# select doesn't change the name of the column but rename() does
 select(gapminder, cont=continent, everything())
 
 rename(gapminder, cont=continent)
@@ -81,6 +85,7 @@ rename(gapminder, cont=continent)
 1. Order by year.
 
 ```{r}
+# desc()- from smallest to highest
 arrange(gapminder, year)
 ```
 
@@ -116,6 +121,9 @@ Now using with pipes:
 ```{r}
 # alter the below to include 2 "pipes"
 arrange(select(gapminder, year, lifeExp, country), year, lifeExp)
+gapminder %>%
+  select(year,lifeExp,country) %>%
+  arrange(year,lifeExp)
 ```
 
 # Resume lecture 
@@ -165,6 +173,7 @@ Let's get:
 
 ```{r}
 gapminder %>%
+  # mutate= creates a column
   mutate(gdpBill = round((gdpPercap*pop)/1000000000, 2))
 ```
 
@@ -192,3 +201,26 @@ Your turn: Make a new column called `cc` that pastes the country name followed b
 gapminder %>%
   mutate (cc=paste (country,continent, sep= ","))
 ```
+
+These functions we've seen are called __vectorized functions__.
+
+## git stuff (Optional)
+
+Knit, commit, push!
+
+# Bonus Exercises
+
+If there's time remaining, we'll practice with these three exercises. I'll give you 1 minute for each, then we'll go over the answer.
+
+1. Take all countries in Europe that have a GDP per capita greater than 10000, and select all variables except `gdpPercap`. (Hint: use `-`).
+
+2. Take the first three columns, and extract the names.
+
+3. Of the `iris` data frame, take all columns that start with the word "Petal". 
+    - Hint: take a look at the "Select helpers" documentation by running the following code: `?tidyselect::select_helpers`.
+    
+4. Convert the population to a number in billions.
+
+5. Filter the rows of the iris dataset for Sepal.Length >= 4.6 and Petal.Width >= 0.5.
+
+Exercises 3. and 5. are from [r-exercises](https://www.r-exercises.com/2017/10/19/dplyr-basic-functions-exercises/).
